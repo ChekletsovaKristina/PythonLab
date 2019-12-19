@@ -1,27 +1,27 @@
 #Создание сервисной книжки авто
 def CreateBook(auto_type, number, mark, model, date_register, family, name, surname, phone, address, service):
     return {
-        "Тип автомаобиля":auto_type,
-        "Заводской №":number,
-        "Марка автомобиля":mark,
-        "Модель автомобиля":model,
-        "Дата регистрации":date_register,#"12.05.2015"
+        "Тип автомаобиля": auto_type,
+        "Заводской №": number,
+        "Марка автомобиля": mark,
+        "Модель автомобиля": model,
+        "Дата регистрации": date_register,#"12.05.2015"
 
         "Фамилия":family,
-        "Имя":name,
-        "Отчество":surname,
+        "Имя": name,
+        "Отчество": surname,
         "Телефон":phone,
-        "Почтовый адрес":address,
+        "Почтовый адрес": address,
 
         "Техобслуживания":service  
     }
 
-#Добавление записи об техосмотре
+# Добавление записи об техосмотре
 def AddService(mileage, date, is_defect, description, price):
     return {
         "Пробег":mileage,
-        "Дата прохождения":date,#"20.10.2016"
-        "Наличие дефектов":is_defect,
+        "Дата прохождения": date,#"20.10.2016"
+        "Наличие дефектов": is_defect,
         "Описание дефектов":description,
         "Стоимость ремонта":price
     }
@@ -33,7 +33,7 @@ def PrintHistorySer(book):
             print(key, " - ", val)
         print()
 
-#Вывод книжки 
+# Вывод книжки 
 def BeautPrint(book):
     for key, elem in book.items():
         if key == "Техобслуживания":
