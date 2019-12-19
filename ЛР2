@@ -1,0 +1,61 @@
+#Создание сервисной книжки авто
+def CreateBook(auto_type, number, mark, model, date_register, family, name, surname, phone, address, service):
+    return {
+        "Тип автомаобиля":auto_type,
+        "Заводской №":number,
+        "Марка автомобиля":mark,
+        "Модель автомобиля":model,
+        "Дата регистрации":date_register,#"12.05.2015"
+
+        "Фамилия":family,
+        "Имя":name,
+        "Отчество":surname,
+        "Телефон":phone,
+        "Почтовый адрес":address,
+
+        "Техобслуживания":service  
+    }
+#Добавление записи об техосмотре
+def AddService(mileage, date, is_defect, description, price):
+    return {
+        "Пробег":mileage,
+        "Дата прохождения":date,#"20.10.2016"
+        "Наличие дефектов":is_defect,
+        "Описание дефектов":description,
+        "Стоимость ремонта":price
+    }
+#Вывод истории техосмотров
+def PrintHistorySer(book):    
+    for elem in book:
+        for key, val in elem.items():
+            print(key, " - ", val)
+        print()
+#Вывод книжки 
+def BeautPrint(book):
+    for key, elem in book.items():
+        if key == "Техобслуживания":
+            print("История техобслуживания в книге " + book["Марка автомобиля"] + " " + book["Модель автомобиля"] + " " + book["Заводской №"] + ":")
+            PrintHistorySer(elem)
+        else:
+            print(str(key) + " - " +  str(elem))
+newBook = CreateBook("Легковой",
+    "5550-1235-6611",
+    "Audi", 
+    "r8", 
+    [12,4,2016],
+    "Романов",
+    "Роман",
+    "Романович",
+    "84452198335",
+    "Россия, г.Масква, Ленина - 9, кв. 44",
+    [])
+newBook["Техобслуживания"].append(AddService(10500,[22,10,2017], True, "Поврежден капот", 15000))
+newBook["Техобслуживания"].append(AddService(28500,[5,4,2019], True, "Замена колес", 20000))
+BeautPrint(newBook)
+
+
+"""Исправления по PEP8:
+    - Наличие лишних пробелов перед символом ":", а также их отсутсвие после,
+    - Отсутсвие пробела после символа "#" в коментариях,
+    - Слишком много пустых строк между блоками кода,
+ """
