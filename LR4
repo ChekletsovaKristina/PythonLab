@@ -261,10 +261,12 @@ def test():
     book.records[1].addWork(work3)
 
     showDataClass1(book)
-    multiply = lambda x,y,z: x + y +z
-    print("\n Lambda, Стоимость проделанных работ:",multiply(int(work.price), int(work2.price),int(work3.price)))
-
-
+    a =[0, work3.price,0,0, work2.price, 0,0,0,work.price,0]
+    b = list(filter(None,a))
+    print(a," После применения фильтра",b)
+    cost =[work.price, work2.price, work3.price]
+    print("\n Стоимость проделанных работ:",reduce(lambda x,y: x + y,map(int,cost)))
+    print("\n Стоимость дорогой работы:",reduce(lambda a,b: a if (a > b) else b,map(int,cost)))
 
 
 if __name__ == "__main__":
