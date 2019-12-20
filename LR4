@@ -1,5 +1,6 @@
 from datetime import date
 from pprint import pprint
+from functools import reduce
 
 
 # region Блок определения классов
